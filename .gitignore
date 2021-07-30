@@ -1,0 +1,10 @@
+# All build directories
+/Build
+/build
+
+# Data files
+*.JPEG
+*.png
+*.csv
+
+
