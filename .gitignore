@@ -7,4 +7,8 @@
 *.png
 *.csv
 
+# python artifacts
+__pycache__
 
+# VS Code Settings
+.vscode

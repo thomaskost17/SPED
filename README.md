@@ -7,6 +7,10 @@ This repo is designed to be a playground for testing sparse sensing and it's var
 * Recreation
 
 * Compression
+
+* Tailored sensing
+
+* Robust Algorithm generation
  
 * Classification
 
