@@ -11,7 +11,7 @@ import numpy as np
 from utility import *
 import matplotlib.pyplot as plt
 import cv2 as cv
-
+import matplotlib as mpl
 def compress(image : np.array, percentage: float, debug: bool  = False)->np.array:
     
     max_pixel_value = 256
