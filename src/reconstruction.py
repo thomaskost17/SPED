@@ -40,7 +40,7 @@ def optimize(y:np.array, C:np.array, epsilon: float, basis: str = "fourier", deb
     # setup LP
     s = cp.Variable(s_sz)
     objective = cp.Minimize(cp.norm(s,1))
-    constraints = [cp.norm(y-C@P@s,1) <= epsilon]
+    constraints = [cp.norm(y-C@P@s,2) <= epsilon]
     prob = cp.Problem(objective, constraints)
     prob.solve(solver=cp.ECOS, max_iters=200, verbose=debug)
     return s.value
@@ -75,14 +75,6 @@ def create_basis(dimension:int, type:str = "fourier")->np.array:
 
 if __name__ == "__main__":
     
-    # # Read in RGB Image
-    # file = "../fixtures/mustache.jpg"
-    # img = read(file)
-    # img = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
-    # sz = img.shape
-    # full_dim = sz[0]*sz[1]
-    # x = img.flatten()
-
     # Create Signal
     n = 4096
     t = np.linspace(0,1,n)
@@ -98,7 +90,7 @@ if __name__ == "__main__":
     y = C@x
 
     # Find sparse Vector
-    s = optimize(y, C, 0, "dct", True)
+    s = optimize(y, C, 0, "dct", False)
 
     # Reconstruct original
     P = create_basis(len(s),"dct")
