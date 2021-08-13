@@ -4,6 +4,7 @@
 
 # Data files
 *.JPEG
+*.jpg
 *.png
 *.csv
 
